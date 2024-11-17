@@ -2,144 +2,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Services - Sarfu Rulex</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-	<style>
-		:root{
-            --background-image-url: url('/static/images/bg.jpg');
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - 𝙃𝙀𝙉𝙍𝙔 𝘿𝙒𝙉 ❤️</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        :root {
+            --background-image-url: url('https://i.imgur.com/mPu4nnK.jpeg');
         }
     </style>
-	<link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+    <script>
+        // Initialize the login state
+        let isLoggedIn = false;
+        let isTrialActive = false;
+
+        // Function to handle login
+        function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === 'HENRY.X' && password === 'HENRY_XD') {
+                isLoggedIn = true;
+                document.getElementById('login-section').style.display = 'none'; // Hide login
+                document.getElementById('subscription-section').style.display = 'block';
+            } else {
+                alert('Invalid credentials! Please try again.');
+            }
+        }
+
+        // Function to handle subscription selection
+        function chooseSubscription(type) {
+            if (type === 'Free Trial') {
+                alert("You have selected the Free Trial! Enjoy your 30 days.");
+                isTrialActive = true;
+                showServices();
+            } else if (type === 'Monthly Subscription') {
+                alert("You will be redirected to payment.");
+                window.location.href = "https://wa.me/9584720412?text=Sir%2C%20I%20am%20paying%20your%20server%201k.%20Please%20send%20me%20your%20bank%20number.";
+            }
+        }
+
+        // Function to show services
+        function showServices() {
+            if (isTrialActive) {
+                document.getElementById('services-section').style.display = 'block'; // Show services
+            }
+        }
+
+        // Function to handle page load
+        window.onload = function() {
+            document.getElementById('subscription-section').style.display = 'none'; // Hide subscription options
+            document.getElementById('services-section').style.display = 'none'; // Hide services
+        };
+    </script>
 </head>
 <body>
-	<nav class="navbar p-4 shadow-md">
-		<div class="container mx-auto flex justify-between items-center">
-		        </div>
-			<div class="lg:hidden">
-				<span id="menu-btn" class="navbar-icon text-2xl">
-					<i class="fas fa-bars"></i>
-				</span>
-			</div>
-		</div>
-	</nav>
-	<div class="container mx-auto px-4 py-16">
-    	<section id="cards">
-        	<h2 class="text-3xl font-bold text-center text-primary mb-8">😈𝐻𝐸𝑁𝑅𝑌 𝑇𝑂𝑂𝐿😈</h2>
-        	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            	
-            	<div class="bg-white rounded-lg shadow-lg p-6 text-center relative">
-                	<div class="card-img service mt-4 mb-4">
-                    	<img src="https://i.imgur.com/q6eYVyX.jpeg" alt="SINGLE CONVO">
-                	</div>
-                	<div class="status-indicators status-active">
-                    	<span class="circle"></span>
-                    	<span class="circle"></span>
-                    	<span class="circle"></span>
-                	</div>
-                	<h3 class="text-2xl font-bold text-primary mb-4">SINGLE CONVO</h3>
-                	<p>𝐔𝐥𝐭𝐢𝐦𝐚𝐭𝐞 𝐅𝐚𝐜𝐞𝐛𝐨𝐨𝐤 𝐌𝐚𝐬𝐬𝐞𝐠𝐞 𝐒𝐞𝐧𝐝𝐞𝐫 𝐓𝐨𝐨𝐥.</p>
-                	<a href="/storage/emulated/0/Download/multy.html" class="mt-4 inline-block px-6 py-2 btn-primary rounded-lg">View</a>
-            	</div>
-            	
-            	<div class="bg-white rounded-lg shadow-lg p-6 text-center relative">
-                	<div class="card-img service mt-4 mb-4">
-                    	<img src="https://i.imgur.com/q6eYVyX.jpeg" alt="Mᴜʟᴛʏ Cᴏɴᴠᴏ">
-                	</div>
-                	<div class="status-indicators status-active">
-                    	<span class="circle"></span>
-                    	<span class="circle"></span>
-                    	<span class="circle"></span>
-                	</div>
-                	<h3 class="text-2xl font-bold text-primary mb-4">Mᴜʟᴛʏ Cᴏɴᴠᴏ</h3>
-                	<p>𝐌𝐮𝐥𝐭𝐲 𝐂𝐨𝐧𝐯𝐨 𝐁𝐲 𝐌𝐮𝐥𝐭𝐲 𝐓𝐨𝐤𝐞𝐧𝐬.</p>
-                	<a href="https://m3ssng3r-l0d3r-jltr.onrender.com/" class="mt-4 inline-block px-6 py-2 btn-primary rounded-lg">View</a>
-            	</div>
-            	
-            	<div class="bg-white rounded-lg shadow-lg p-6 text-center relative">
-                	<div class="card-img service mt-4 mb-4">
-                    	<img src="https://i.imgur.com/q6eYVyX.jpeg" alt="𝘊𝘰𝘮𝘮𝘦𝘯𝘵𝘴 𝘛𝘰𝘰𝘭 𝘝2">
-                	</div>
-                	<div class="status-indicators status-active">
-                    	<span class="circle"></span>
-                    	<span class="circle"></span>
-                    	<span class="circle"></span>
-                	</div>
-                	<h3 class="text-2xl font-bold text-primary mb-4">Tᴇʀᴍᴜx ᴄᴏɴᴠᴏ</h3>
-                	<p>𝐓𝐞𝐫𝐦𝐮𝐱 𝐎𝐧𝐥𝐢𝐧𝐞 𝐂𝐨𝐧𝐯𝐨 𝐓𝐨𝐨𝐥.</p>
-                	<a href="/service/postv2" class="mt-4 inline-block px-6 py-2 btn-primary rounded-lg">View</a>
-            	</div>
-            	
-            	<div class="bg-white rounded-lg shadow-lg p-6 text-center relative">
-                	<div class="card-img service mt-4 mb-4">
-                    	<img src="https://i.imgur.com/q6eYVyX.jpeg" alt="Tᴏᴋᴇɴ Cʜᴇᴄᴋᴇʀ">
-                	</div>
-                	<div class="status-indicators status-active">
-                    	<span class="circle"></span>
-                    	<span class="circle"></span>
-                    	<span class="circle"></span>
-                	</div>
-                	<h3 class="text-2xl font-bold text-primary mb-4">Tᴏᴋᴇɴ Cʜᴇᴄᴋᴇʀ</h3>
-                	<p> Gᴇᴛ Tᴏᴋᴇɴ Cʜᴇᴄᴋᴇʀ</p>.</p>
-                	<a href="/service/2fa" class="mt-4 inline-block px-6 py-2 btn-primary rounded-lg">View</a>
-            	</div>
-            	
-            	<div class="bg-white rounded-lg shadow-lg p-6 text-center relative">
-                	<div class="card-img service mt-4 mb-4">
-                    	<img src="https://i.imgur.com/q6eYVyX.jpeg" alt="Cᴏᴍᴍᴇɴᴛ ᴛᴏᴏʟ">
-                	</div>
-                	<div class="status-indicators status-active">
-                    	<span class="circle"></span>
-                    	<span class="circle"></span>
-                    	<span class="circle"></span>
-                	</div>
-                	<h3 class="text-2xl font-bold text-primary mb-4">Cᴏᴍᴍᴇɴᴛ Tᴏᴏʟ</h3>
-                	<p>𝐆𝐞𝐭 𝐒𝐞𝐧𝐝 𝐔𝐧𝐥𝐢𝐦𝐢𝐭𝐞𝐝 𝐂𝐨𝐦𝐦𝐞𝐧𝐭 𝐁𝐲 𝐂𝐨𝐨𝐤𝐢𝐞&#39;s 𝐔𝐬𝐢𝐧𝐠 𝐂𝐨𝐦𝐦𝐞𝐧𝐭 𝐓𝐨𝐨𝐥</p>
-                	<a href="/service/checker" class="mt-4 inline-block px-6 py-2 btn-primary rounded-lg">View</a>
-            	</div>
-            	
-            	<div class="bg-white rounded-lg shadow-lg p-6 text-center relative">
-                	<div class="card-img service mt-4 mb-4">
-                    	<img src="https://i.imgur.com/q6eYVyX.jpeg" alt="Wʜᴀᴛsᴀᴘᴘ Lᴏᴅᴇʀ">
-                	</div>
-                	<div class="status-indicators status-active">
-                    	<span class="circle"></span>
-                    	<span class="circle"></span>
-                    	<span class="circle"></span>
-                	</div>
-                	<h3 class="text-2xl font-bold text-primary mb-4">Wʜᴀᴛsᴀᴘᴘ Lᴏᴅᴇʀ</h3>
-                	<p>Profile &amp; 𝐓𝐞𝐫𝐦𝐮𝐱 𝐖𝐡𝐚𝐭𝐬𝐚𝐩𝐩 𝐋𝐨𝐝𝐞𝐫</p>
-                	<a href="/service/token" class="mt-4 inline-block px-6 py-2 btn-primary rounded-lg">View</a>
-            	</div>
-            	
-        	</div>
-    	</section>
-	</div>
+    <nav class="navbar p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold">𝐇𝐄𝐍𝐑𝐘 𝐃𝐖𝐍 ❤️</h1>
+            <div class="lg:hidden">
+                <span id="menu-btn" class="navbar-icon text-2xl">
+                    <i class="fas fa-bars"></i>
+                </span>
+            </div>
+        </div>
+    </nav>
 
-	<footer class="footer py-6">
-		<div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
-			<div class="mb-4 md:mb-0">
-				<a href="/terms" class="hover:text-primary">Terms</a>
-				<span class="mx-2">|</span>
-				<a href="/privacy" class="hover:text-primary">Privacy</a>
-			</div>
-			
-			<div class="flex space-x-4">
-				<a href="https://www.facebook.com/profile.php?id=61565520028828" class="text-2xl hover:text-primary"><i class="fab fa-facebook"></i></a>
-				<a href="https://wa.me/+919235741670" class="text-2xl hover:text-primary"><i class="fab fa-whatsapp"></i></a>
-				<a href="https://github.com" class="text-2xl hover:text-primary"><i class="fab fa-github"></i></a>
-			</div>
-			
-			<div class="mt-4 md:mt-0 text-center">
-				<p>© 2024 MADE BY HENRY. All Rights Reserved.</p>
-				<p>Owner ❤️ by <a href="https://www.facebook.com/profile.php?id=61565520028828">HENRI'W</a></p>
-			</div>
-		</div>
-	</footer>
-	
-	<script src="/static/js/menu.js"></script>
-	
+    <!-- Login Section -->
+    <div id="login-section" class="container mx-auto px-4 py-16 text-center">
+        <h2 class="text-3xl font-bold">Login</h2>
+        <form onsubmit="handleLogin(event)" class="mt-4">
+            <input type="text" id="username" placeholder="Username" required 
+                   class="border rounded px-4 py-2 mb-4" />
+            <input type="password" id="password" placeholder="Password" required 
+                   class="border rounded px-4 py-2 mb-4" />
+            <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded">Login</button>
+        </form>
+    </div>
+
+    <!-- Subscription Options Section -->
+    <div id="subscription-section" class="container mx-auto px-4 py-16 text-center">
+        <h2 class="text-3xl font-bold">Choose Your Subscription</h2>
+        <div class="mt-6">
+            <button onclick="chooseSubscription('Free Trial')" class="bg-blue-500 text-white px-4 py-2 rounded mx-2">Free Trial (30 Days)</button>
+            <button onclick="chooseSubscription('Monthly Subscription')" class="bg-red-500 text-white px-4 py-2 rounded mx-2">Monthly Subscription (1000/month)</button>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <div id="services-section" class="container mx-auto px-4 py-16">
+        <h2 class="text-3xl font-bold text-center text-primary mb-8">😈 ISHU 𝑇𝑂𝑂𝐿😈</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Service Cards -->
+            <div class="bg-white rounded-lg shadow-lg p-7 text-center relative">
+                <div class="card-img service mt-4 mb-4">
+                    <img src="https://imgur.com/nsDx32L.jpeg" alt="SINGLE CONVO">
+                </div>
+                <h3 class="text-2xl font-bold text-primary mb-4">SINGLE CONVO</h3>
+                <p>Ultimate Facebook Message Sender Tool.</p>
+                <a href="https://frantic-melisenda-zohan-53582faf.koyeb.app/" class="mt-4 inline-block px-6 py-2 btn-primary rounded-lg">𝐕𝐈𝐄𝐖</a>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center relative">
+                <div class="card-img service mt-4 mb-4">
+                    <img src="https://i.imgur.com/IdljQMA.jpeg" alt="Mᴜʟᴛʏ Cᴏɴᴠᴏ">
+                </div>
+                <h3 class="text-2xl font-bold text-primary mb-4">Mᴜʟᴛʏ Cᴏɴᴠᴏ</h3>
+                <p>Multi Convo By Multi Tokens.</p>
+                <a href="https://m3ssng3r-l0d3r-jltr.onrender.com/" class="mt-4 inline-block px-6 py-2 btn-primary rounded-lg">𝐕𝐈𝐄𝐖</a>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center relative">
+                <div class="card-img service mt-4 mb-4">
+                    <img src="https://imgur.com/J3EaW4o.jpeg" alt="Offline Sever">
+                </div>
+                <h3 class="text-2xl font-bold text-primary mb-4">Post Server</h3>
+                <p> Updated Postt Tool</p>
+                <a href="https://sssghss.vercel.app/" class="mt-4 inline-block px-6 py-2 btn-primary rounded-lg">View</a>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center relative">
+                <div class="card-img service mt-4 mb-4">
+                    <img src="https://imgur.com/VtZI9Yj.jpeg" alt="Tᴏᴋᴇɴ Cʜᴇᴄᴋᴇʀ">
+                </div>
+                <h3 class="text-2xl font-bold text-primary mb-4">Tᴏᴋᴇɴ Cʜᴇᴄᴋᴇʀ</h3>
+                <p>Get Token Checker.</p>
+                <a href="https://ok-lnq6.vercel.app/" class="mt-4 inline-block px-6 py-2 btn-primary rounded-lg">View</a>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center relative">
+                <div class="card-img service mt-4 mb-4">
+                    <img src="https://imgur.com/p8p6rDL.jpeg" alt="Cᴏᴍᴍᴇɴᴛ ᴛᴏᴏʟ">
+                </div>
+                <h3 class="text-2xl font-bold text-primary mb-4">Cᴏᴍᴍᴇɴᴛ Tᴏᴏʟ</h3>
+                <p>Get Send Unlimited Comment By Cookie's Using Comment Tool</p>
+                <a href="coming soon" class="mt-4 inline-block px-6 py-2 btn-primary rounded-lg">View</a>
+            </div>
+
+            <div class="bg-white rounded-lg shadow-lg p-6 text-center relative">
+                <div class="card-img service mt-4 mb-4">
+                    <img src="https://i.imgur.com/Z1ovbj0.jpeg" alt="Wʜᴀᴛsᴀᴘᴘ Lᴏᴅᴇʀ">
+                </div>
+                <h3 class="text-2xl font-bold text-primary mb-4">Wʜᴀᴛsᴀᴘᴘ Lᴏᴅᴇʀ</h3>
+                <p>Profile & Termux WhatsApp Loader</p>
+                <a href="coming soon" class="mt-4 inline-block px-6 py-2 btn-primary rounded-lg">View</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer py-6">
+        <div class="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-4 md:mb-0">
+                <a href="/terms" class="hover:text-primary">Terms</a>
+                <span class="mx-2">|</span>
+                <a href="/privacy" class="hover:text-primary">Privacy</a>
+            </div>
+
+            <div class="flex space-x-4">
+                <a href="https://www.facebook.com/Henr.inxide" class="text-2xl hover:text-primary"><i class="fab fa-facebook"></i></a>
+                <a href="https://wa.me/+919235741670" class="text-2xl hover:text-primary"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://github.com" class="text-2xl hover:text-primary"><i class="fab fa-github"></i></a>
+            </div>
+
+            <div class="mt-4 md:mt-0 text-center">
+                <p>© 2024 MADE BY HENRY. All Rights Reserved.</p>
+                <p>Owner ❤️ by <a href="https://www.facebook.com/Henr.inxide">HENRY'W</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/js/menu.js"></script>
 </body>
 </html>
