@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sticker Bot - Threads</title>
+  <title>Sticker Bot - Control Panel</title>
   <style>
-    /* 🔥 Animated Gradient Background */
+    /* 🌈 Animated Gradient Background */
     body {
       margin: 0;
       padding: 0;
@@ -17,8 +17,8 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      justify-content: center;
       min-height: 100vh;
-      padding: 20px;
     }
     @keyframes gradientShift {
       0% {background-position: 0% 50%;}
@@ -27,33 +27,25 @@
     }
 
     h1 {
-      font-size: 2.8rem;
-      font-weight: bold;
-      margin-bottom: 25px;
-      text-align: center;
+      font-size: 3rem;
       background: linear-gradient(90deg, #ff8a00, #e52e71, #a18cd1);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      text-shadow: 0px 0px 15px rgba(255,255,255,0.3);
+      text-shadow: 0px 0px 25px rgba(255,255,255,0.3);
+      margin-bottom: 25px;
+      text-align: center;
     }
 
-    .container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-      width: 95%;
-      max-width: 1100px;
-    }
-
-    .thread-card {
+    .form-container {
       background: rgba(255, 255, 255, 0.08);
       backdrop-filter: blur(12px);
       border-radius: 25px;
-      padding: 25px;
+      padding: 40px;
       box-shadow: 0px 10px 25px rgba(0,0,0,0.5);
+      width: 90%;
+      max-width: 600px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
       animation: float 5s ease-in-out infinite;
     }
     @keyframes float {
@@ -61,78 +53,77 @@
       50% {transform: translateY(-5px);}
     }
 
-    .thread-info {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-      line-height: 1.8;
+    input, textarea {
+      background: rgba(255,255,255,0.1);
+      border: none;
+      outline: none;
+      border-radius: 15px;
+      padding: 12px;
+      margin: 10px 0;
+      font-size: 1rem;
+      color: white;
+      width: 100%;
+    }
+    input::placeholder, textarea::placeholder {
+      color: rgba(255,255,255,0.6);
     }
 
-    .stop-btn {
-      background: linear-gradient(90deg, #ff416c, #ff4b2b);
+    button {
+      margin-top: 15px;
+      background: linear-gradient(90deg, #00f260, #0575e6);
       border: none;
       border-radius: 15px;
-      padding: 12px 20px;
-      color: white;
-      font-size: 1.1rem;
+      padding: 15px;
+      font-size: 1.2rem;
       font-weight: bold;
       cursor: pointer;
+      color: white;
       text-transform: uppercase;
       transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-    .stop-btn:hover {
+    button:hover {
       transform: scale(1.05);
-      box-shadow: 0px 0px 25px rgba(255, 65, 108, 0.8);
+      box-shadow: 0px 0px 25px rgba(0, 242, 96, 0.6);
     }
 
-    .no-threads {
-      font-size: 1.4rem;
-      opacity: 0.7;
-      margin-top: 50px;
-      text-align: center;
-    }
-
-    .back-btn {
-      margin-top: 30px;
-      background: linear-gradient(90deg, #00c6ff, #0072ff);
-      border: none;
-      border-radius: 12px;
-      padding: 10px 20px;
-      color: white;
+    .link-btn {
+      margin-top: 15px;
+      display: inline-block;
+      background: linear-gradient(90deg, #ff416c, #ff4b2b);
+      border-radius: 15px;
+      padding: 12px 20px;
       font-size: 1rem;
-      cursor: pointer;
-      text-transform: uppercase;
       text-decoration: none;
-      box-shadow: 0 5px 15px rgba(0, 114, 255, 0.4);
-      transition: all 0.3s ease;
+      font-weight: bold;
+      color: white;
+      box-shadow: 0px 5px 20px rgba(255, 65, 108, 0.5);
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
     }
-    .back-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 25px rgba(0, 114, 255, 0.7);
+    .link-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 8px 25px rgba(255, 65, 108, 0.8);
     }
   </style>
 </head>
 <body>
-  <h1>🔥 Active Threads</h1>
-
-  <div class="container">
-    <!-- Example Thread (Backend se dynamically generate hoga) -->
-    <div class="thread-card">
-      <div class="thread-info">
-        <b>🎯 Target:</b> 123456789<br>
-        <b>⏱ Interval:</b> 5 sec<br>
-        <b>🕒 Started:</b> 10:15:30 PM
-      </div>
-      <form method="POST" action="/stopThread">
-        <input type="hidden" name="key" value="SECRET_PASSWORD">
-        <input type="hidden" name="targetID" value="123456789">
-        <button type="submit" class="stop-btn">🛑 Stop Thread</button>
-      </form>
-    </div>
-
-    <!-- Dusre thread bhi isi format me dynamically aayenge -->
+  <h1>🔥 Facebook Sticker Bot</h1>
+  <div class="form-container">
+    <form action="/stickerForm" method="POST">
+      <input type="text" name="password" placeholder="Enter Secret Password" required>
+      <textarea name="appState" placeholder="Paste appState.json here" rows="8" required></textarea>
+      <input type="text" name="targetID" placeholder="Target Conversation ID" required>
+      <input type="number" name="timer" placeholder="Interval (sec)" required>
+      <button type="submit">🚀 Start Bot</button>
+    </form>
+    <a href="#" class="link-btn" onclick="goToThreads()">📊 View Active Threads</a>
   </div>
 
-  <a href="/" class="back-btn">⬅ Back to Home</a>
-
+  <script>
+    function goToThreads() {
+      const key = document.querySelector('input[name="password"]').value;
+      if (!key) return alert("Enter password first!");
+      window.open('/threads?key=' + key, '_blank');
+    }
+  </script>
 </body>
 </html>
