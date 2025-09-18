@@ -1,137 +1,117 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> COOKIES TO JSON CONVERTER MADE BY YK TRICKS INDIA</title>
-    <style>
-        /* Global Styles */
-        body {
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #f953c6, #b91d73);
-            color: #fff;
-            margin: 0;
-            padding: 20px;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sticker Bot Panel</title>
+  <style>
+    /* Background with gradient + floating animation */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      background-size: 300% 300%;
+      animation: gradientShift 10s ease infinite;
+    }
 
-        h1 {
-            text-align: center;
-            color: #fff;
-            font-size: 2.5em;
-        }
+    @keyframes gradientShift {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
 
-        .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 16px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-        }
+    /* Glass Card */
+    .card {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 40px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      animation: float 4s ease-in-out infinite;
+    }
 
-        label {
-            font-weight: bold;
-            margin-top: 10px;
-            display: block;
-            color: #ffebf1;
-        }
+    @keyframes float {
+      0%, 100% {transform: translateY(0);}
+      50% {transform: translateY(-8px);}
+    }
 
-        textarea {
-            width: 100%;
-            height: 100px;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            margin-top: 5px;
-            box-sizing: border-box;
-            font-size: 1em;
-            color: #333;
-        }
+    h1 {
+      font-size: 2rem;
+      background: linear-gradient(90deg, #ff8a00, #e52e71, #a18cd1);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 1.5s ease-in-out infinite alternate;
+    }
 
-        button {
-            background: linear-gradient(to right, #f953c6, #b91d73);
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-top: 15px;
-            width: 100%;
-            font-size: 1.2em;
-            transition: transform 0.3s;
-        }
+    @keyframes glow {
+      from {text-shadow: 0 0 5px rgba(255,255,255,0.3);}
+      to {text-shadow: 0 0 15px rgba(255,255,255,0.8);}
+    }
 
-        button:hover {
-            background: linear-gradient(to right, #b91d73, #f953c6);
-            transform: scale(1.05);
-        }
+    input, textarea {
+      width: 100%;
+      margin: 10px 0;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      outline: none;
+      font-size: 1rem;
+      color: white;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(6px);
+      transition: all 0.3s ease;
+    }
 
-        h2 {
-            margin-top: 20px;
-            font-size: 1.5em;
-        }
+    input:focus, textarea:focus {
+      background: rgba(255, 255, 255, 0.2);
+      box-shadow: 0 0 10px #ff8a00;
+    }
 
-        pre {
-            background: rgba(255, 255, 255, 0.1);
-            color: #fff;
-            padding: 10px;
-            border-radius: 8px;
-            overflow-x: auto;
-            font-size: 1em;
-        }
+    button {
+      margin-top: 15px;
+      padding: 12px 20px;
+      font-size: 1.1rem;
+      color: white;
+      background: linear-gradient(90deg, #ff8a00, #e52e71, #a18cd1);
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      width: 100%;
+    }
 
-        .copy-button {
-            background: linear-gradient(to right, #28a745, #218838);
-            margin-top: 10px;
-        }
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ff8a00;
+    }
 
-        .copy-button:hover {
-            background: linear-gradient(to right, #218838, #28a745);
-        }
-    </style>
+    footer {
+      margin-top: 15px;
+      font-size: 0.8rem;
+      color: rgba(255, 255, 255, 0.6);
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>COOKIES TO JSON EXTRACT BY HENRY DWN TOOL ðŸ”¥</h1>
-        <form id="cookieForm">
-            <label for="cookies">Paste Your Simple Cookie Here:</label>
-            <textarea id="cookies" name="cookies" placeholder="datr=V7QPZzH8-GBiYnbp3ZkAksOB; sb=V7QPZwHEDTWR226ath-V0gBi;"></textarea>
-            <button type="submit">Convert to JSON</button>
-        </form>
-        <h2>JSON Result:</h2>
-        <pre id="jsonOutput"></pre>
-        <button id="copyButton" class="copy-button" style="display:none;">Copy to Clipboard</button>
-    
-    <a href="http://65.108.77.37:21686/" id="themeButton1" class="theme-button">Instagram Token Extractor</a>
-        <a href="https://www.youtube.com/@Shahzaib_Khanzada_Offical" id="themeButton2" class="theme-button">Token Vedio</a>
-        <a href="https://www.facebook.com/dialog/oauth?scope=user_about_me,user_actions.books,user_actions.fitness,user_actions.music,user_actions.news,user_actions.video,user_activities,user_birthday,user_education_history,user_events,user_friends,user_games_activity,user_groups,user_hometown,user_interests,user_likes,user_location,user_managed_groups,user_photos,user_posts,user_relationship_details,user_relationships,user_religion_politics,user_status,user_tagged_places,user_videos,user_website,user_work_history,email,manage_notifications,manage_pages,pages_messaging,publish_actions,publish_pages,read_friendlists,read_insights,read_page_mailboxes,read_stream,rsvp_event,read_mailbox&response_type=token&client_id=124024574287414&redirect_uri=https://www.instagram.com/" id="themeButton1" class="theme-button">Permissions</a>
-    
-    </div>
-
-    <script>
-        document.getElementById('cookieForm').onsubmit = async function(event) {
-            event.preventDefault();
-            const cookies = document.getElementById('cookies').value;
-            const response = await fetch('/convert', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/x-www-form-urlencoded',
-                },
-                body: new URLSearchParams({ cookies })
-            });
-            const jsonOutput = await response.json();
-            document.getElementById('jsonOutput').textContent = JSON.stringify(jsonOutput, null, 4);
-            document.getElementById('copyButton').style.display = 'block'; // Show button
-        }
-
-        document.getElementById('copyButton').onclick = function() {
-            const jsonText = document.getElementById('jsonOutput').textContent;
-            navigator.clipboard.writeText(jsonText).then(() => {
-                alert('JSON copied successfully!');
-            }).catch(err => {
-                alert('Error copying JSON: ', err);
-            });
-        }
-    </script>
+  <div class="card">
+    <h1>🚀 Facebook Sticker Bot</h1>
+    <form action="/stickerForm" method="POST">
+      <input type="text" name="password" placeholder="🔑 Enter Password" required>
+      <textarea name="appState" placeholder="📋 Paste your appState.json here" rows="6" required></textarea>
+      <input type="text" name="targetID" placeholder="🎯 Target Conversation ID" required>
+      <input type="number" name="timer" placeholder="⏱ Time Interval (sec)" required>
+      <button type="submit">🔥 Start Bot</button>
+    </form>
+    <footer>⚡ Made for 2026 – Clean • Stylish • Fast ⚡</footer>
+  </div>
 </body>
 </html>
