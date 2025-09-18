@@ -3,115 +3,136 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sticker Bot Panel</title>
+  <title>Sticker Bot - Threads</title>
   <style>
-    /* Background with gradient + floating animation */
+    /* 🔥 Animated Gradient Background */
     body {
       margin: 0;
       padding: 0;
       font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
       background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
       background-size: 300% 300%;
-      animation: gradientShift 10s ease infinite;
+      animation: gradientShift 8s ease infinite;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
     }
-
     @keyframes gradientShift {
       0% {background-position: 0% 50%;}
       50% {background-position: 100% 50%;}
       100% {background-position: 0% 50%;}
     }
 
-    /* Glass Card */
-    .card {
-      background: rgba(255, 255, 255, 0.08);
-      border-radius: 20px;
-      padding: 40px;
-      width: 90%;
-      max-width: 500px;
-      text-align: center;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      animation: float 4s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% {transform: translateY(0);}
-      50% {transform: translateY(-8px);}
-    }
-
     h1 {
-      font-size: 2rem;
+      font-size: 2.8rem;
+      font-weight: bold;
+      margin-bottom: 25px;
+      text-align: center;
       background: linear-gradient(90deg, #ff8a00, #e52e71, #a18cd1);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: glow 1.5s ease-in-out infinite alternate;
+      text-shadow: 0px 0px 15px rgba(255,255,255,0.3);
     }
 
-    @keyframes glow {
-      from {text-shadow: 0 0 5px rgba(255,255,255,0.3);}
-      to {text-shadow: 0 0 15px rgba(255,255,255,0.8);}
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      width: 95%;
+      max-width: 1100px;
     }
 
-    input, textarea {
-      width: 100%;
-      margin: 10px 0;
-      padding: 12px;
-      border: none;
-      border-radius: 10px;
-      outline: none;
-      font-size: 1rem;
-      color: white;
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(6px);
-      transition: all 0.3s ease;
+    .thread-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(12px);
+      border-radius: 25px;
+      padding: 25px;
+      box-shadow: 0px 10px 25px rgba(0,0,0,0.5);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      animation: float 5s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% {transform: translateY(0);}
+      50% {transform: translateY(-5px);}
     }
 
-    input:focus, textarea:focus {
-      background: rgba(255, 255, 255, 0.2);
-      box-shadow: 0 0 10px #ff8a00;
-    }
-
-    button {
-      margin-top: 15px;
-      padding: 12px 20px;
+    .thread-info {
       font-size: 1.1rem;
+      margin-bottom: 20px;
+      line-height: 1.8;
+    }
+
+    .stop-btn {
+      background: linear-gradient(90deg, #ff416c, #ff4b2b);
+      border: none;
+      border-radius: 15px;
+      padding: 12px 20px;
       color: white;
-      background: linear-gradient(90deg, #ff8a00, #e52e71, #a18cd1);
+      font-size: 1.1rem;
+      font-weight: bold;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .stop-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 0px 25px rgba(255, 65, 108, 0.8);
+    }
+
+    .no-threads {
+      font-size: 1.4rem;
+      opacity: 0.7;
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .back-btn {
+      margin-top: 30px;
+      background: linear-gradient(90deg, #00c6ff, #0072ff);
       border: none;
       border-radius: 12px;
+      padding: 10px 20px;
+      color: white;
+      font-size: 1rem;
       cursor: pointer;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      width: 100%;
+      text-transform: uppercase;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0, 114, 255, 0.4);
+      transition: all 0.3s ease;
     }
-
-    button:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #ff8a00;
-    }
-
-    footer {
-      margin-top: 15px;
-      font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.6);
+    .back-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0, 114, 255, 0.7);
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>🚀 Facebook Sticker Bot</h1>
-    <form action="/stickerForm" method="POST">
-      <input type="text" name="password" placeholder="🔑 Enter Password" required>
-      <textarea name="appState" placeholder="📋 Paste your appState.json here" rows="6" required></textarea>
-      <input type="text" name="targetID" placeholder="🎯 Target Conversation ID" required>
-      <input type="number" name="timer" placeholder="⏱ Time Interval (sec)" required>
-      <button type="submit">🔥 Start Bot</button>
-    </form>
-    <footer>⚡ Made for 2026 – Clean • Stylish • Fast ⚡</footer>
+  <h1>🔥 Active Threads</h1>
+
+  <div class="container">
+    <!-- Example Thread (Backend se dynamically generate hoga) -->
+    <div class="thread-card">
+      <div class="thread-info">
+        <b>🎯 Target:</b> 123456789<br>
+        <b>⏱ Interval:</b> 5 sec<br>
+        <b>🕒 Started:</b> 10:15:30 PM
+      </div>
+      <form method="POST" action="/stopThread">
+        <input type="hidden" name="key" value="SECRET_PASSWORD">
+        <input type="hidden" name="targetID" value="123456789">
+        <button type="submit" class="stop-btn">🛑 Stop Thread</button>
+      </form>
+    </div>
+
+    <!-- Dusre thread bhi isi format me dynamically aayenge -->
   </div>
+
+  <a href="/" class="back-btn">⬅ Back to Home</a>
+
 </body>
 </html>
